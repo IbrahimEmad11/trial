@@ -58,5 +58,6 @@ def predict(features: PatientFeatures):
         "probability_of_lymphedema": round(probability, 4)
     }
 
-port = int(os.environ.get("PORT", 8080))  # Use Railway's dynamic port
-asyncio.run(uvicorn.run(app, host="0.0.0.0", port=port))
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))  # Use Railway's dynamic port
+    asyncio.run(uvicorn.run(app, host="0.0.0.0", port=port))
