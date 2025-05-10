@@ -57,5 +57,5 @@ def predict(features: PatientFeatures):
         "probability_of_lymphedema": round(probability, 4)
     }
 
-port = int(os.environ.get("PORT", 8000))  # Use Railway's dynamic port
+port = int(os.environ.get("PORT", 8080))  # Use Railway's dynamic port
 uvicorn.run(app, host="0.0.0.0", port=port)
