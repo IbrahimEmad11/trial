@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
+import asyncio
 
 # Load model
 model = joblib.load("rf_lymphedema_model.joblib")
@@ -58,4 +59,4 @@ def predict(features: PatientFeatures):
     }
 
 port = int(os.environ.get("PORT", 8080))  # Use Railway's dynamic port
-uvicorn.run(app, host="0.0.0.0", port=port)
+asyncio.run(uvicorn.run(app, host="0.0.0.0", port=port))
